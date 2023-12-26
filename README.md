@@ -2,7 +2,7 @@
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000) ![commits](https://img.shields.io/github/commit-activity/t/isobelmcrae/suika-game)
 > A simplified recreation of [Suika Game](https://en.wikipedia.org/wiki/Suika_Game) created in Unity with C#.
 
-<img align="center" src="https://upload.wikimedia.org/wikipedia/en/3/36/Suika_Game_Gameplay.png"> <img height=237 width=421 align="center" src="https://github.com/isobelmcrae/isobelmcrae/blob/main/suika/preview.png">
+<img align="center" height=166 width=295 src="https://upload.wikimedia.org/wikipedia/en/3/36/Suika_Game_Gameplay.png"> <img height=166 width=295 align="center" src="https://github.com/isobelmcrae/isobelmcrae/blob/main/suika/preview.png">
 
 ## Build / Download
 1. Download the game for Windows or macOS from [Releases](https://github.com/isobelmcrae/suika/releases), then run!
