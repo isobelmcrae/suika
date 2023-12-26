@@ -8,6 +8,7 @@ public class Fruit : MonoBehaviour
     private GameManager game;
     private bool hasCollided = false;
     public Dropper dropper;
+    public bool isTouchingTopBar = false;
 
     // gets game manager
     void Start()
@@ -24,10 +25,26 @@ public class Fruit : MonoBehaviour
         Destroy(fruit2);
     }
 
+    IEnumerator WaitForEndGame() {
+        yield return new WaitForSeconds(5f);
+        if (isTouchingTopBar == true) {
+            game.endGame();
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collision) {
 
         dropper.currentFruit = null;
         dropper.SpawnNewFruit();
+    }
+
+    void OnTriggerStay2D(Collider2D collision) {
+        isTouchingTopBar = true;
+        StartCoroutine(WaitForEndGame());
+    }
+
+    void OnTriggerExit2D(Collider2D collision) {
+        isTouchingTopBar = false;
     }
 
     // checks if fruit is touching another fruit
@@ -39,6 +56,7 @@ public class Fruit : MonoBehaviour
         if (otherFruit != null && otherFruit.id == this.id && this.gameObject.GetInstanceID() < collision.gameObject.GetInstanceID())
         {
             game.InstantiateFruit(this.transform.position, this.id + 1);
+            game.addScore(this.id);
             StartCoroutine(DestroyFruits(this.gameObject, collision.gameObject));
         } 
     }

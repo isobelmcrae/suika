@@ -37,7 +37,7 @@ public class Dropper : MonoBehaviour
     {
         // follows the mouse's position on the x axis, and permanently sets the y and z to 4 and 0 respectively
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (mousePos.x < 2.3f && mousePos.x > -2.4f) {
+        if (!game.gameOver && mousePos.x < 2.3f && mousePos.x > -2.4f) {
             mousePos.z = 0; // sets z to 0
             mousePos.y = 5; // sets y to 4  
             transform.position = mousePos; // sets dropper position to mouse position
@@ -47,7 +47,7 @@ public class Dropper : MonoBehaviour
             currentFruit.transform.position = this.transform.position;
         }
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (!game.gameOver && Input.GetMouseButtonDown(0)) {
             currentFruit.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
     }
